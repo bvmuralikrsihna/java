@@ -3,8 +3,14 @@ pipeline {
 
   stages {
     stages('build') {
+      steps {
       sh 'ant -f build.xml -v'
     }
   }
  }
-123
+ post {
+   always {
+     archive 'dist/*.jar'
+     }
+    }
+   }  
